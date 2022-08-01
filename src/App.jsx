@@ -3,7 +3,8 @@ import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 // styles
-import './App.css'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import './styles/App.module.scss'
 
 // components
 import Navbar from './Components/Navbar/Navbar'

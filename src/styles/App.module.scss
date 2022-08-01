@@ -1,0 +1,16 @@
+@import 'variables.scss';
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: $primaryBg;
+    color: $dark;
+    font-family: $body;
+}
+a, a:hover {
+    color: initial;
+    text-decoration: none;
+}
