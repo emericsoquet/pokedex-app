@@ -1,7 +1,11 @@
-$light: rgb(247, 247, 247, 1);
-$dark: rgb(36, 36, 36, 1);
+// basics
+$light: #f7f7f7;
+$mid-light: #ccc;
+$dark: #383838;
 
-$primaryBg: rgba(246, 90, 82, 1);
-$primary: rgba(243, 57, 48, 1);
+// primaries 
+$primaryBg: #f19691;
+$primaryLight: #f9dad8;
+$primary: #f33930;
 
-$screen: rgba(169, 193, 230, 1);
+$screen: #a9c1e6;

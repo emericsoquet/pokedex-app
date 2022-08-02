@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 
 // styles
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import './styles/App.module.scss'
+import './Styles/App.module.scss'
 
 // components
 import Navbar from './Components/Navbar/Navbar'
@@ -24,7 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={ <Listing /> } />
         <Route path="/pokedex" element={ <Pokedex /> } />
-        <Route path="/pokemon/:name" element={ <Pokemon /> } />
+        <Route path="/pokemon/:id" element={ <Pokemon /> } />
         <Route path="*" element={ <NotFound /> } />
       </Routes>
     </div>
