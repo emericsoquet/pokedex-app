@@ -1,0 +1,43 @@
+@import 'variables.scss';
+
+.pokemon {
+
+    &__identity {
+        position: relative;
+        overflow: hidden;
+        margin-top: 3rem;
+
+        .pokemon {
+
+            &__img {
+                background: $light;
+                border-radius: 100%;
+                padding-bottom: 33.3333%;
+                height: 0;
+                position: relative;
+                img {
+                    margin: auto;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    left: 0;
+                    height: 80px;
+                    width: 80px;
+
+                }
+            }
+        }
+
+        h1 {
+            color: $primary;
+            opacity: .5;
+            font-size: 4rem;
+            font-weight: 900;
+            font-style: italic;
+            text-align: center;
+            letter-spacing: -.5px;
+        }
+    }
+}

@@ -3,7 +3,7 @@ import { usePokemon } from '../../pokemon.service';
 import styles from '../../Styles/Card.module.scss'
 import { Link } from 'react-router-dom'
 
-const Card = (props) => {
+const Card = ( props ) => {
 
   const pokemon = usePokemon( props.name )
   // console.log(  )
