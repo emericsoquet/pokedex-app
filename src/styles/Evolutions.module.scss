@@ -1,0 +1,17 @@
+@import 'variables.scss';
+
+.evolutions {
+    background: none;
+    .evolution {
+        background: none;
+        &__first {
+            background: none;
+        }
+        &__second {
+            background: none;
+        }
+        &__third {
+            background: none;
+        }
+    }
+}

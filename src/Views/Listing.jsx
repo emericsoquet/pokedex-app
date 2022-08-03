@@ -1,6 +1,5 @@
 import React from 'react'
-import { useListPokemons } from '../listPokemons.service';
-import { usePokemon } from '../pokemon.service';
+import { useListPokemons } from '../pokemon.service';
 import { v4 as uuidv4 } from 'uuid'
 import styles from '../Styles/Listing.module.scss'
 

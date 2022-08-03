@@ -28,6 +28,10 @@
 
                 }
             }
+
+            &__body {
+                background: $light;
+            }
         }
 
         h1 {
@@ -38,6 +42,7 @@
             font-style: italic;
             text-align: center;
             letter-spacing: -.5px;
+            font-family: $body;
         }
     }
 }

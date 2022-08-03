@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 const Card = ( props ) => {
 
   const pokemon = usePokemon( props.name )
-  // console.log(  )
 
   const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-ii/silver/transparent/${ props.id }.png`
   console.log(url)
