@@ -18,8 +18,6 @@ import NotFound from './Views/NotFound'
 
 function App() {
 
-  const favorites = useSelector((state) => state.favorites);
-  console.log('FAVORITE', favorites)
 
   return (
     <div className="App">

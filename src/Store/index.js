@@ -6,15 +6,16 @@ import { useSelector } from 'react-redux';
 // reducers
 import favoritesReducer from '../Reducers/favorites';
 
-// localStorage
+// localStorage : appel du service
 import { loadState, saveState } from '../tools/localStorage.service';
 
-
+// ensemble des reducers de l'application
 const rootReducer = combineReducers({
     favorites: favoritesReducer
 })
 
 const persistedState = loadState();
+// création du store
 const store = createStore(
     rootReducer, 
     persistedState

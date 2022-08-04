@@ -2,12 +2,14 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addFavorite  } from '../actions'
 import { v4 as uuidv4 } from 'uuid'
+import { usePokemonList } from '../tools/pokemonList.service'
 
 import Card from '../Components/Card/Card'
 
 const Pokedex = () => {
   const favorites = useSelector((state) => state.favorites)
-  console.log(favorites)
+  console.log('FAVORI', favorites)
+
   return (
     <div className="container">
       <div className="row">
@@ -16,10 +18,9 @@ const Pokedex = () => {
         <>
           { favorites.map( (favorite, index) => {
               return (
-                <Card key={ uuidv4() } id={ index + 1 } name={ favorite.pokemon.name } />
+                
+                <Card key={ uuidv4() } id={ index + 1 } pokemon={ favorite.infos } />
               )
-
-              console.log(favorite.pokemon.name)
           }) }
         </> : 
         // si aucun favori

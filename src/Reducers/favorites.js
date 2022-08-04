@@ -5,13 +5,12 @@ const initialState = []
 const favoritesReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_FAVORITE:
-            return [
-                ...state,
-                action.payload
-            ]
+            return [...state, action.payload]
         case REMOVE_FAVORITE: 
-            const newBasket = state.filter(({ id }) => id !== action.payload);
-            return newBasket;
+            const newFavorite = state.filter(( pokemon ) => pokemon.id !== action.payload);
+            console.log('retiré')
+            
+            return newFavorite;
         default:
             return state
     }
