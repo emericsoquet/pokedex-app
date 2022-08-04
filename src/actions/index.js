@@ -6,8 +6,6 @@ export function addFavorite(payload) {
         payload
     }
 }
-
-
 export function removeFavorite(payload) {
     return {
         type: REMOVE_FAVORITE,

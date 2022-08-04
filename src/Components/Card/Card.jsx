@@ -11,9 +11,6 @@ import pokeball from '../../assets/pokeball.svg'
 
 const Card = ( props ) => {
 
-  const favorites = useSelector((state) => state.favorites)
-  console.log('POKÉDEX', favorites)
-
   const pokemon = usePokemon(props.name)
   const dispatch = useDispatch();
 
@@ -24,6 +21,8 @@ const Card = ( props ) => {
     }
     dispatch(addFavorite(payload))
     console.log('AJOUTÉ AU POKÉDEX')
+
+    localStorage.setItem('favorites', addFavorite);
   }
   
   const removePokemon = (event) => {
@@ -35,8 +34,13 @@ const Card = ( props ) => {
     console.log('RETIRÉ DU POKÉDEX')
   }
 
-  console.log('POKÉMON', props)
-  console.log('FAVORI', favorites.map( element => { element.includes('metapod')}) )
+  /* console.log('POKÉMON', props)
+  const test = () => {
+    favorites.find( pokemon => {return pokemon.pokemon.name === props.name })
+  } */
+
+  /* console.log(pokemon.name)
+  console.log(favorites.map( element => element.pokemon.name )) */
 
   return (
     <>
@@ -59,7 +63,7 @@ const Card = ( props ) => {
             </div>
 
           </figure>
-          <button onClick={ addPokemon } className={ styles.button }>
+          <button onClick={addPokemon} className={ styles.button }>
             <img src={pokeball} alt="Add to/Remove from favorites" />
           </button>
         </Link>

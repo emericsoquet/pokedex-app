@@ -3,6 +3,7 @@
 .card {
     position: relative;
     transition: transform .3s ease-in-out;
+    z-index: 0;
     &:hover {
         transform: translateY(-5px);
         .card__container {

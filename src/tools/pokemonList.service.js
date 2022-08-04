@@ -27,9 +27,7 @@ export function usePokemonList() {
                 
     
                 for(let i = 0; i < pokemonRow; i++) {
-                    console.log(row[i])
                     freshState.push(row[i])
-                    
                 }
                 console.log(freshState)
                 setPokemons(freshState)

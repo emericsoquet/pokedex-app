@@ -1,8 +1,6 @@
 import { REMOVE_FAVORITE, ADD_FAVORITE } from '../actions/types'
 
-const initialState = [
-
-]
+const initialState = []
 
 const favoritesReducer = (state = initialState, action) => {
     switch(action.type) {
