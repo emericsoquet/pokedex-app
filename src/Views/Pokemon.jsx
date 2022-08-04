@@ -43,8 +43,7 @@ const Pokemon = () => {
 
               <h2>{ pokemonDetails.genera?.[7].genus }</h2>
                     
-                    { description
-                    }
+                    { description }
 
               <ul>
                 { pokemon.stats &&
@@ -65,9 +64,14 @@ const Pokemon = () => {
                 <li>Catch rate: { pokemonDetails.capture_rate }</li>
                 <li>Hatch counter: { pokemonDetails.hatch_counter } cycles</li>
                 <li>Gender: 
-                      { pokemonDetails.gender_rate }
-                      <span>{ (pokemonDetails.gender_rate / 8) * 100 }% female</span>
-                      <span>{ ((8 - pokemonDetails.gender_rate) / 8) * 100 }% male</span>  
+                      { pokemonDetails.gender_rate === -1 ? 
+                        <span>Unknown</span> :
+                        <>
+                          <span>{ (pokemonDetails.gender_rate / 8) * 100 }% female</span>
+                          <span>{ ((8 - pokemonDetails.gender_rate) / 8) * 100 }% male</span>  
+                        </>
+                      }
+                      
                 </li>
                 <li>
                     Group: 
