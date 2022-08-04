@@ -11,24 +11,26 @@ const Pokedex = () => {
   console.log('FAVORI', favorites)
 
   return (
-    <div className="container">
-      <div className="row">
-      { favorites.length > 0 ?
-        // si favori
-        <>
-          { favorites.map( (favorite, index) => {
-              return (
-                <Card key={ uuidv4() } id={ index + 1 } pokemon={ favorite.infos } />
-              )
-          }) }
-        </> : 
-        // si aucun favori
-        <>
-          Aucun favori
-        </>
-      }
+    <main>
+      <div className="container">
+        <div className="row">
+        { favorites.length > 0 ?
+          // si favori
+          <>
+            { favorites.map( (favorite, index) => {
+                return (
+                  <Card key={ uuidv4() } id={ index + 1 } pokemon={ favorite.infos } />
+                )
+            }) }
+          </> : 
+          // si aucun favori
+          <>
+            Aucun favori
+          </>
+        }
+        </div>
       </div>
-    </div>
+    </main>
   )
 }
 

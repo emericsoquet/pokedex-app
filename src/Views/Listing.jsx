@@ -11,18 +11,20 @@ const Listing = () => {
   const pokemon = usePokemonList()
 
   return (
-    <div className={ `container ${ styles.listing }` }>
-      <div className="row">
+    <main>
+      <div className={ `container ${ styles.listing }` }>
+        <div className="row">
 
-      <Searchbar />
-      { pokemon &&
-            pokemon.map( (pokemon, index) => {
-                  return <Card key={ uuidv4() } id={ index + 1 } pokemon={pokemon} name={ pokemon.name } />
-              }
-            )
-      }
+        <Searchbar />
+        { pokemon &&
+              pokemon.map( (pokemon, index) => {
+                    return <Card key={ uuidv4() } id={ index + 1 } pokemon={pokemon} name={ pokemon.name } />
+                }
+              )
+        }
+        </div>
       </div>
-    </div>
+    </main>
   )
 }
 

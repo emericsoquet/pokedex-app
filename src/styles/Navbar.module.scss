@@ -1,4 +1,4 @@
-@import 'variables.scss';
+@import 'partials.scss';
 
 .nav {
     background: $primary;
@@ -8,20 +8,79 @@
     right: 0;
     left: 0;
     z-index: 2;
-    
-    a {
-        color: $light;
-        font-weight: 700;
-        margin-right: 2rem;
-        letter-spacing: 2px;
-        font-family: $heading;
-        font-size: 20px;
+
+    &__toggler {
+        color: transparentize($light, .8);
+        border-radius: 100%;
+        height: 40px;
+        width: 40px;
+        border: 3px solid transparentize($light, .4);
+
+        &_icon {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform .3s;
+            &::after {
+                content: '';
+                width: 0;
+                height: 0;
+                position: absolute;
+                border-style: solid;
+                top: 40%;
+                border-width: 6px 6px 0 6px;
+                border-color: $light transparent transparent transparent;
+            }
+        }
     }
 
-    .input-group {
-        border: 3px solid $dark;
-        input[type="text"] {
-            background: $dark;
+    &__toggler[aria-expanded='true'] {
+        .nav__toggler_icon {
+            transform: rotate(180deg)
+        }
+    }
+    
+    ul {
+        margin: 1rem 0;
+        @include min-width(md) {
+            margin: 0;
+        }
+        li {
+            margin: .5rem 2rem .5rem 0;
+            a {
+                color: $light;
+                font-weight: 700;
+                letter-spacing: 5px;
+                font-family: $monospace1;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    &__counter {
+        &_catched {
+            display: flex;
+            align-items: center;
+            img {
+                width: 20px;
+                display: block;
+                margin-right: 20px;
+            }
+            p {
+                margin: 0;
+                color: $light;
+                font-weight: 300;
+                font-size: 1rem;
+                letter-spacing: .5px;
+                font-family: $headings;
+                font-style: italic;
+                text-transform: uppercase;
+            }
         }
     }
     

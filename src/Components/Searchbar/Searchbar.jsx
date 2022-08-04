@@ -20,6 +20,10 @@ const Searchbar = () => {
         setFirstCall(false)
     }, [search])
 
+    useEffect( () => {
+        
+    })
+
     const handleSearch = event => {
         event.preventDefault()
         console.log(inputValue.current.value)

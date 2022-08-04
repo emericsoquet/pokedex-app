@@ -20,84 +20,86 @@ const Pokemon = () => {
     <>
     { pokemon && pokemonDetails &&
 
-      <div className={`${ styles.pokemon }`}>
-        <div className="container">
-          <div className={`row ${ styles.pokemon__identity }`}>
+      <main>
+        <div className={`${ styles.pokemon }`}>
+          <div className="container">
+            <div className={`row ${ styles.pokemon__identity }`}>
 
-            <figure className={`${ styles.pokemon__img } col-4 mx-auto`}>
+              <figure className={`${ styles.pokemon__img } col-4 mx-auto`}>
 
-              {/* si le pokémon est ultérieur à la génération 5, pas de gif donc on affiche une alternative */}
-              { pokemon.sprites &&
-                  <img src={ 
-                              pokemon.sprites.versions['generation-v']['black-white'].animated.front_default != null ? 
-                              pokemon.sprites.versions['generation-v']['black-white'].animated.front_default : 
-                              pokemon.sprites.front_default  } 
-                  />   
-              }
-
-            </figure>
-
-            <div className={`${ styles.pokemon__body }`} >
-
-              <h1>{ pokemon.name }</h1>
-
-              <h2>{ pokemonDetails.genera?.[7].genus }</h2>
-                    
-                    { description }
-
-              <ul>
-                { pokemon.stats &&
-                    pokemon.stats.map( (stat, index) => {
-                      return <li key={ uuidv4() }>{ stat.stat.name } : { stat.base_stat }</li>
-                    })
+                {/* si le pokémon est ultérieur à la génération 5, pas de gif donc on affiche une alternative */}
+                { pokemon.sprites &&
+                    <img src={ 
+                                pokemon.sprites.versions['generation-v']['black-white'].animated.front_default != null ? 
+                                pokemon.sprites.versions['generation-v']['black-white'].animated.front_default : 
+                                pokemon.sprites.front_default  } 
+                    />   
                 }
-              </ul>
 
-              <ul>
-                { pokemon.abilities &&
-                    <li>Abilities: { pokemon.abilities.map( (ability, index) =>
-                        <span key={ index }>{ ability.ability.name }</span>
-                    )}</li>
-                }
-                <li>Height: { (Math.round(pokemon.height * 10) / 100).toFixed(2) } m</li>
-                <li>Weight: { (Math.round(pokemon.weight * 10) / 100).toFixed(2) } kg</li>
-                <li>Catch rate: { pokemonDetails.capture_rate }</li>
-                <li>Hatch counter: { pokemonDetails.hatch_counter } cycles</li>
-                <li>Gender: 
-                      { pokemonDetails.gender_rate === -1 ? 
-                        <span>Unknown</span> :
-                        <>
-                          <span>{ (pokemonDetails.gender_rate / 8) * 100 }% female</span>
-                          <span>{ ((8 - pokemonDetails.gender_rate) / 8) * 100 }% male</span>  
-                        </>
-                      }
+              </figure>
+
+              <div className={`${ styles.pokemon__body }`} >
+
+                <h1>{ pokemon.name }</h1>
+
+                <h2>{ pokemonDetails.genera?.[7].genus }</h2>
                       
-                </li>
-                <li>
-                    Group: 
-                    { 
-                        pokemonDetails.egg_groups?.map( (group, index) => {
-                        return <span key={ index }>{ group.name }</span>
-                        })
-                    } 
-                </li>
-              </ul>
-              
-              <ul>
-                  { pokemon.types &&
-                    pokemon.types.map( (element, index) => {
-                      return <li key={ index }>{ element.type.name }</li>
-                    }) 
-                  }
-              </ul>
+                      { description }
 
-              { pokemon.species && 
-                  <Evolutions  />
-              }
+                <ul>
+                  { pokemon.stats &&
+                      pokemon.stats.map( (stat, index) => {
+                        return <li key={ uuidv4() }>{ stat.stat.name } : { stat.base_stat }</li>
+                      })
+                  }
+                </ul>
+
+                <ul>
+                  { pokemon.abilities &&
+                      <li>Abilities: { pokemon.abilities.map( (ability, index) =>
+                          <span key={ index }>{ ability.ability.name }</span>
+                      )}</li>
+                  }
+                  <li>Height: { (Math.round(pokemon.height * 10) / 100).toFixed(2) } m</li>
+                  <li>Weight: { (Math.round(pokemon.weight * 10) / 100).toFixed(2) } kg</li>
+                  <li>Catch rate: { pokemonDetails.capture_rate }</li>
+                  <li>Hatch counter: { pokemonDetails.hatch_counter } cycles</li>
+                  <li>Gender: 
+                        { pokemonDetails.gender_rate === -1 ? 
+                          <span>Unknown</span> :
+                          <>
+                            <span>{ (pokemonDetails.gender_rate / 8) * 100 }% female</span>
+                            <span>{ ((8 - pokemonDetails.gender_rate) / 8) * 100 }% male</span>  
+                          </>
+                        }
+                        
+                  </li>
+                  <li>
+                      Group: 
+                      { 
+                          pokemonDetails.egg_groups?.map( (group, index) => {
+                          return <span key={ index }>{ group.name }</span>
+                          })
+                      } 
+                  </li>
+                </ul>
+                
+                <ul>
+                    { pokemon.types &&
+                      pokemon.types.map( (element, index) => {
+                        return <li key={ index }>{ element.type.name }</li>
+                      }) 
+                    }
+                </ul>
+
+                { pokemon.species && 
+                    <Evolutions  />
+                }
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </main>
       
     }
     </>

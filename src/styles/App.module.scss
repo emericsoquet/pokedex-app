@@ -1,4 +1,4 @@
-@import 'variables.scss';
+@import 'partials.scss';
 
 *, ::before, ::after {
     box-sizing: border-box;
@@ -8,7 +8,10 @@
 body {
     background: $primaryBg;
     color: $dark;
-    font-family: $body;
+    font-family: $monospace1;
+}
+main {
+    margin-top: calc(40px + 5rem);
 }
 a, a:hover {
     color: initial;
