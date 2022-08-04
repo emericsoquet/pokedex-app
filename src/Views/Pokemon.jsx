@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { usePokemon, usePokemonDetails } from '../pokemon.service';
+import { usePokemon, usePokemonDetails } from '../tools/pokemon.service';
 import { v4 as uuidv4 } from 'uuid'
 import Evolutions from '../Components/Evolutions/Evolutions';
 import styles from '../Styles/Pokemon.module.scss'

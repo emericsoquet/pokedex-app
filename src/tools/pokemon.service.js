@@ -1,17 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
-export function useListPokemons() {
-    const [listPokemons, setListPokemons] = useState([]);
-    useEffect( () => {
-        async function fetchList() {
-            const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon/');
-            setListPokemons( data.results );
-        }
-        fetchList();
-    }, []); 
-    return listPokemons;
-}
 
 export function usePokemon(id) {
     const [pokemon, setPokemon] = useState([]);
@@ -28,28 +17,14 @@ export function usePokemon(id) {
     return pokemon;
 }
 
+
+
 export function usePokemonDetails(id) {
     const [pokemon, setPokemon] = useState([]);
     useEffect( () => {
         async function fetchList() {
             const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
             setPokemon( data );
-        }
-        fetchList();
-    }, []);
-    return pokemon;
-}
-
-export function useEvolutionDetails(url) {
-    const [pokemon, setPokemon] = useState([]);
-    useEffect( () => {
-        async function fetchList() {
-            if (url) {
-                const { data } = await axios.get(url);
-                setPokemon( data );
-            } else {
-                console.log('NON CONNECTÉ')
-            }
         }
         fetchList();
     }, []);
@@ -73,4 +48,20 @@ export function useEvolutions(url) {
         fetchList();
     }, []);
     return evolutions;
+}
+
+export function useEvolutionDetails(url) {
+    const [pokemon, setPokemon] = useState([]);
+    useEffect( () => {
+        async function fetchList() {
+            if (url) {
+                const { data } = await axios.get(url);
+                setPokemon( data );
+            } else {
+                console.log('NON CONNECTÉ')
+            }
+        }
+        fetchList();
+    }, []);
+    return pokemon;
 }

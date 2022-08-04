@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { usePokemonDetails, useEvolutions } from '../../pokemon.service'
+import { usePokemonDetails, useEvolutions } from '../../tools/pokemon.service'
 import styles from '../../Styles/Evolutions.module.scss'
 import { v4 as uuid } from 'uuid'
 import Evolution from './Evolution'
@@ -68,26 +68,3 @@ const Evolutions = () => {
 
 export default Evolutions
 
-{/* <article key={ uuid() } className={` ${styles.evolution} ${styles.evolution__third} `}>
-                            <figure>
-                                <Evolution details={ third.species } />
-                                <figcaption>{ third.species.name }</figcaption>
-                            </figure>
-                        </article> */
-                    
-                    }
-
-                    {/* <article key={ uuid() } className={` ${styles.evolution} ${styles.evolution__second} `}>
-                <figure>
-                    <img src=""></img>
-                    <Evolution details={ second.species } />
-                    <figcaption>{ second.species.name }</figcaption>
-                </figure>
-            </article> */}
-
-            {/* <article className={`${styles.evolution} ${styles.evolution__first}`}>
-                        <figure>
-                            <img src=""></img>
-                            <figcaption>{ chain.species.name }</figcaption>
-                        </figure>
-                    </article> */}
