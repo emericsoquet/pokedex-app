@@ -1,6 +1,7 @@
 // dependencies
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 // styles
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
@@ -16,7 +17,9 @@ import Pokemon from './Views/Pokemon'
 import NotFound from './Views/NotFound'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const favorites = useSelector((state) => state.favorites);
+  console.log('FAVORITE', favorites)
 
   return (
     <div className="App">

@@ -6,8 +6,10 @@ const base = 'https://pokeapi.co/api/v2/'
 
 
 export function usePokemonList() {
+    
         const [pokemons, setPokemons] = useState([])
         const [pokemonRow, setPokemonRow] = useState(perPage)
+
         useEffect( () => {
             async function fetchList() {
                 const { data } = await axios.get(`${base}pokemon?limit=${pokemonRow}&offset=0`)
@@ -35,13 +37,14 @@ export function usePokemonList() {
             window.addEventListener('scroll', bottomList) 
             fetchList();
         }, [pokemonRow]);
-          console.log(pokemonRow)
-          const bottomList = () => {
+
+        const bottomList = () => {
             const { scrollTop, scrollHeight, clientHeight } = document.documentElement
-            if (scrollHeight - scrollTop === clientHeight) {
-              setPokemonRow( pokemonRow => pokemonRow + 20)
+            if (scrollHeight - scrollTop <= clientHeight) {
+            setPokemonRow( pokemonRow => pokemonRow + 20)
             }
         }
+
     return pokemons;
 }
 

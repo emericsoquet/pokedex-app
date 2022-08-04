@@ -39,9 +39,3 @@ const Evolution = (props) => {
 }
 
 export default Evolution
-
-{/* <img  src=""
-    alt={`Image of ${ sprite.name }`}
-/> */}
-
-/* third.species.name */

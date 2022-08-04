@@ -1,14 +1,15 @@
-import { combineReducers, createStore } from 'redux';
+import thunk from 'redux-thunk'
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import favoritesReducer from '../Reducers/favorites';
 
 const rootReducer = combineReducers({
-    
+    favorites: favoritesReducer
 })
 
 
 const store = createStore(
     rootReducer, 
-    {},
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    applyMiddleware(thunk)
 )
 
 export default store

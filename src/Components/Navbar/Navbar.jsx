@@ -24,14 +24,6 @@ const Navbar = () => {
                         </li>
                     </ul>
 
-                    <form role="search" className="d-flex">
-                        <div className="input-group">
-                            <span className="input-group-text"></span>
-                            <input type="text" className="form-control" />
-                        </div>
-                        <button className="btn" type="submit">Search</button>
-                    </form>
-
                 </div>
 
             
