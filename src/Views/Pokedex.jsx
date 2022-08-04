@@ -18,7 +18,6 @@ const Pokedex = () => {
         <>
           { favorites.map( (favorite, index) => {
               return (
-                
                 <Card key={ uuidv4() } id={ index + 1 } pokemon={ favorite.infos } />
               )
           }) }
