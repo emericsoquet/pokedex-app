@@ -11,7 +11,7 @@ const Pokemon = () => {
   const pokemon = usePokemon( params.id )
   const pokemonDetails = usePokemonDetails( params.id )
 
-
+  // ciblage de la description la plus récente, en anglais
   const { flavor_text : description } = pokemonDetails.flavor_text_entries?.find(({ language, version }) => {
     return (language.name === 'en' && version.name === 'sword')
   }) ?? {};
@@ -25,15 +25,16 @@ const Pokemon = () => {
           <div className={`row ${ styles.pokemon__identity }`}>
 
             <figure className={`${ styles.pokemon__img } col-4 mx-auto`}>
+
+              {/* si le pokémon est ultérieur à la génération 5, pas de gif donc on affiche une alternative */}
               { pokemon.sprites &&
                   <img src={ 
                               pokemon.sprites.versions['generation-v']['black-white'].animated.front_default != null ? 
                               pokemon.sprites.versions['generation-v']['black-white'].animated.front_default : 
                               pokemon.sprites.front_default  } 
-                  />
-                  
+                  />   
               }
-              { console.log(pokemon.sprites)}
+
             </figure>
 
             <div className={`${ styles.pokemon__body }`} >
@@ -64,6 +65,7 @@ const Pokemon = () => {
                 <li>Catch rate: { pokemonDetails.capture_rate }</li>
                 <li>Hatch counter: { pokemonDetails.hatch_counter } cycles</li>
                 <li>Gender: 
+                      { pokemonDetails.gender_rate }
                       <span>{ (pokemonDetails.gender_rate / 8) * 100 }% female</span>
                       <span>{ ((8 - pokemonDetails.gender_rate) / 8) * 100 }% male</span>  
                 </li>
