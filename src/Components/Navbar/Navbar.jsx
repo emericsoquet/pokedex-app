@@ -1,9 +1,14 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
 import styles from '../../Styles/Navbar.module.scss'
 
+
 const Navbar = () => {
+
+    const favorites = useSelector((state) => state.favorites);
+
     return (
     <nav className={ `navbar navbar-expand-md ${ styles.nav }` }>
         <div className="container-fluid">
@@ -22,6 +27,7 @@ const Navbar = () => {
                                     to="/pokedex"
                             >Pokédex personnel</NavLink>
                         </li>
+                        <li className="nav-item">{ favorites.length }</li>
                     </ul>
 
                 </div>
