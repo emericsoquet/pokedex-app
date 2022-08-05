@@ -49,7 +49,7 @@ const Identity = ({pokemon, pokemonDetails}) => {
             <div className={styles.pokemon__description}>
                 <div className="container">
                     <div className="row">
-                        <p class="col-10 col-md-8 col-lg-6 col-xxl-5">{ description }</p>
+                        <p className="col-10 col-md-8 col-lg-6 col-xxl-5">{ description }</p>
                     </div>
                 </div>
             </div>
