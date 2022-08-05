@@ -1,17 +1,57 @@
 @import 'partials.scss';
 
-.evolutions {
-    background: none;
+.pokemon__evolutions {
+    margin: 2rem auto;
     .evolution {
         background: none;
-        &__first {
+        cursor: pointer;
+        &__pokemon {
+            img {
+                display: block;
+                margin: auto;
+            }
+            figcaption {
+                text-align: center;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+                font-family: $monospace1;
+                font-weight: 700;
+            }
+            position: relative;
+            margin: 2rem 0;
+            
+        }
+
+        &__first, &__second, &__third {
             background: none;
         }
-        &__second {
-            background: none;
+        &__first, &__second {
+            .evolution__pokemon {
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: -3rem;
+                    width: 0;
+                    height: 0;
+                    right: 50%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    border-style: solid;
+                    border-width: 20px 20px 0 20px;
+                    border-color: $primaryBg transparent transparent transparent;
+                    @include min-width(md) {
+                        border-width: 20px 0 20px 20px;
+                        left: auto;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: -1rem;
+                        border-color: transparent transparent transparent $primaryBg;
+                    }
+                }
+            }
         }
-        &__third {
-            background: none;
-        }
+            
+    
     }
 }

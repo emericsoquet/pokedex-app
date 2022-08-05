@@ -54,7 +54,7 @@ const Card = ( { pokemon } ) => {
     <>
       { pokemonInfos && 
 
-        <Link to={`/pokemon/${ pokemonInfos.id }`} 
+        <Link to={`../pokemon/${ pokemonInfos.id }`} 
               className={   `col-10 mx-auto col-sm-6 mx-sm-0 col-lg-3 
                             ${ styles.card }`
                             

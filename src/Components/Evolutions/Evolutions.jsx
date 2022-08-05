@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { usePokemonDetails, useEvolutions } from '../../tools/pokemon.service'
 import styles from '../../Styles/Evolutions.module.scss'
-import { v4 as uuid } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import Evolution from './Evolution'
 
 const Evolutions = () => {
@@ -26,11 +26,11 @@ const Evolutions = () => {
     if(chain) {
 
         {/* Premier stade */}
-        firstStage = <Evolution key={ uuid() } details={ chain.species } stage="first" />
+        firstStage = <Evolution key={ uuidv4() } details={ chain.species } stage="first" />
 
         {/* Deuxième(s) évolution(s) */}
         secondStage = chain.evolves_to?.map( (second) => {
-            return <Evolution key={ uuid() } details={ second.species } stage="second" />
+            return <Evolution key={ uuidv4() } details={ second.species } stage="second" />
         })
 
         {/* Troisième(s) évolution(s) */}
@@ -38,7 +38,7 @@ const Evolutions = () => {
             <>
                 { second.evolves_to.map( (third) => {
                     const url = third.species
-                    return <Evolution key={ uuid() } details={ url } stage="third" />    
+                    return <Evolution key={ uuidv4() } details={ url } stage="third" />    
                 }) 
                 }
             </>
@@ -49,17 +49,18 @@ const Evolutions = () => {
 
     return (
         <>
-            { chain && 
-                <section className={`${styles.evolutions}`}>
-                    <h3>Evolutions</h3>
+        { chain && 
+            <section className={`container ${styles.pokemon__evolutions}`}>
 
+                <div className="row">
                     {/* Insertion des variables dans le JSX */}
                     { firstStage }
                     { secondStage }
                     { thirdStage }
+                </div>
 
-                </section>
-            }
+            </section>
+        }
         </>
     )
 
