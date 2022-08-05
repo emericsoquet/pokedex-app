@@ -1,7 +1,6 @@
 @import 'partials.scss';
 
 .pokemon {
-
     &__identity {
         position: relative;
         overflow: hidden;
@@ -184,11 +183,25 @@
         }
     }
 
+    &__buttons {
+        position: relative;
+        .pokemon__button {
+            position: absolute;
+            right: 1rem;
+            top: -3.25rem;
+        }
+    }
+
     &__body {
         background: $light;
         margin-top: 2rem;
         margin-bottom: 0;
         padding: 2rem 0;
+        position: relative;
+
+        .pokemon__button {
+            background: $mid-light;
+        }
     }
 
     &__stats {

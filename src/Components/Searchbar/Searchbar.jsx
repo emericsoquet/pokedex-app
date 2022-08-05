@@ -27,7 +27,6 @@ const Searchbar = () => {
     const handleSearch = event => {
         event.preventDefault()
         console.log(inputValue.current.value)
-        /* console.log(inputValue.current.value) */
         setSearch(inputValue.current.value)
     }
 
