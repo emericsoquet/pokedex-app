@@ -24,17 +24,8 @@ const Card = ( { pokemon } ) => {
     }
     dispatch(addFavorite(payload))
     localStorage.setItem('favorites', addFavorite);
-    console.log('ajouté')
+    console.log('AJOUTÉ DU POKÉDEX')
   }
-  
-  /* const removePokemon = (event) => {
-    const payload = {
-      infos: pokemonInfos,
-      id: pokemonInfos.id
-    }
-    dispatch(removeFavorite(payload))
-    console.log('RETIRÉ DU POKÉDEX')
-  } */
 
   const existantFavorite = (pokemonName) => favorites.findIndex( element => element.infos.name == pokemonName )
 
@@ -43,15 +34,12 @@ const Card = ( { pokemon } ) => {
     existantFavorite(pokemonName) !== -1 ? dispatch(removeFavorite(id)) : addPokemon()
   }
 
-  /* const toggleFavorite = (pokemonName) => {
-    existantFavorite(pokemonName) !== -1 && ''
-  } */
  
   return (
     <>
       { pokemonInfos && 
 
-        <Link to={`/pokemon/${ pokemonInfos.id }`} className={ `col-10 mx-auto col-sm-6 col-lg-3 ${ styles.card }` }>
+        <Link to={`/pokemon/${ pokemonInfos.id }`} className={ `col-10 mx-auto col-sm-6 mx-sm-0 col-lg-3 ${ styles.card }` }>
           <figure className={ styles.card__container } >
 
             { pokemonInfos.sprites &&
@@ -71,7 +59,8 @@ const Card = ( { pokemon } ) => {
           </figure>
           <button 
                   onClick={ (event) => manageFavorites(event, pokemonInfos.name, pokemonInfos.id) } 
-                  className={ styles.button }
+                  className={`${styles.button}
+                              ${ existantFavorite(pokemonInfos.name) !== -1 ? styles.button_catched : '' }`}
             >
             <img src={pokeball} alt="Add to/Remove from favorites" />
           </button>

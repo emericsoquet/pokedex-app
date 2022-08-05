@@ -33,7 +33,7 @@ const Searchbar = () => {
 
     return (
         <form role="search" className={`col-10 mx-auto ${styles.searchbar}`} onSubmit={handleSearch}>
-            <label for="search-pokemon">Seek out wild Pokémons!</label>
+            <label htmlFor="search-pokemon">Seek out wild Pokémons!</label>
             <div className="input-group">
                 <input type="text" className="form-control" id="search-pokemon" ref={inputValue} />
                 <button className="input-group-text" type="submit">Search</button>

@@ -51,15 +51,19 @@
         }
         li {
             margin: .5rem 2rem .5rem 0;
+            transition: transform .4s;
             a {
-                color: $light;
+                color: $primaryBg;
                 font-weight: 700;
                 letter-spacing: 5px;
                 font-family: $monospace1;
                 font-size: 1.5rem;
                 text-transform: uppercase;
             }
-            
+            .nav__active {
+                color: $light;
+                text-shadow: transparentize($dark, .25) 0 0 10px;
+            }
         }
     }
 
@@ -74,12 +78,11 @@
             }
             p {
                 margin: 0;
-                color: $light;
-                font-weight: 300;
+                color: $primaryBg;
+                font-weight: 700;
                 font-size: 1rem;
                 letter-spacing: .5px;
                 font-family: $headings;
-                font-style: italic;
                 text-transform: uppercase;
             }
         }

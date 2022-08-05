@@ -23,13 +23,13 @@ const Navbar = () => {
 
                     <ul className={ `navbar-nav` }>
                         <li className="nav-item">
-                            <NavLink
-                                    to="/"
+                            <NavLink    className={ state => state.isActive ? styles.nav__active : '' }
+                                        to="/"
                             >All Pokémons</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink
-                                    to="/pokedex"
+                            <NavLink    className={ state => state.isActive ? styles.nav__active : '' }   
+                                        to="/pokedex"
                             >Pokédex</NavLink>
                         </li>
                     </ul>

@@ -82,6 +82,8 @@
     
     .button {
         position: absolute;
+        box-sizing: border-box;
+        border: 5px $dark solid;
         top: 1.25rem;
         right: 1.25rem;
         background: transparentize($mid-light, .3);
@@ -96,7 +98,13 @@
         img {
             width: 30px;
             height: 30px;
-            transition: transform .5s ease-in;
+            transition: transform .5s ease-in, filter .3s .2s, opacity .3s .2s;
+        }
+        &_catched {
+            img {
+                filter: grayscale(100%);
+                opacity: .65;
+            }
         }
 
         &:hover {

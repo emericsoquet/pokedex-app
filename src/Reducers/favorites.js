@@ -8,8 +8,7 @@ const favoritesReducer = (state = initialState, action) => {
             return [...state, action.payload]
         case REMOVE_FAVORITE: 
             const newFavorite = state.filter(( pokemon ) => pokemon.id !== action.payload);
-            console.log('retiré')
-            
+            console.log('RETIRÉ DU POKÉDEX')
             return newFavorite;
         default:
             return state
