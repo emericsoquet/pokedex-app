@@ -14,6 +14,7 @@ const Card = ( { pokemon } ) => {
   const name = pokemon.name
   const pokemonInfos = usePokemon(name)
   const dispatch = useDispatch();
+  console.log(pokemonInfos)
 
   const favorites = useSelector((state) => state.favorites);
 
