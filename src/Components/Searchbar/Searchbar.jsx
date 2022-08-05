@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-
+import styles from '../../Styles/Searchbar.module.scss'
 import { usePokemonSearch } from '../../tools/pokemonList.service';
 
 const Searchbar = () => {
@@ -32,12 +32,13 @@ const Searchbar = () => {
     }
 
     return (
-        <form role="search" className="d-flex" onSubmit={handleSearch}>
+        <form role="search" className={`col-10 mx-auto ${styles.searchbar}`} onSubmit={handleSearch}>
+            <label for="search-pokemon">Seek out wild Pokémons!</label>
             <div className="input-group">
-                <span className="input-group-text"></span>
-                <input type="text" className="form-control" ref={inputValue} />
+                <input type="text" className="form-control" id="search-pokemon" ref={inputValue} />
+                <button className="input-group-text" type="submit">Search</button>
             </div>
-            <button className="btn" type="submit">Search</button>
+            
         </form>
     )
 }
