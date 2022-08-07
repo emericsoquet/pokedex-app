@@ -68,18 +68,13 @@ export function usePokemonSearch() {
             .catch( (error) => { 
                 console.log(error)
             })
-
-            // tous les pokémons sont poussés dans un tableau
-            const row = []
-            data.results.map( element => {
-                row.push(element)
-            })
             
-            // on découpe ce tableau par tranche; une nouvelle tranche sera appelée à chaque modifiction de pokemonRow
-            setPokemons(row)
+            setPokemons(data.results)
         }
         fetchList()
     }, []) 
+
+    
 
     return pokemons;
 } 

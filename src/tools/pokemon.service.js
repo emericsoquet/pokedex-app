@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
-
 export function usePokemon(id) {
     const [pokemon, setPokemon] = useState([]);
     useEffect( () => {
@@ -16,8 +15,6 @@ export function usePokemon(id) {
     }, []);
     return pokemon;
 }
-
-
 
 export function usePokemonDetails(id) {
     const [pokemon, setPokemon] = useState([]);

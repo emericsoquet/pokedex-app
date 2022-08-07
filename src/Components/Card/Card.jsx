@@ -29,6 +29,7 @@ const Card = ( { pokemon } ) => {
     console.log('AJOUTÉ DU POKÉDEX')
   }
 
+
   const existantFavorite = (pokemonName) => favorites.findIndex( element => element.infos.name == pokemonName )
 
   const manageFavorites = (event, pokemonName, id) => {
@@ -54,7 +55,7 @@ const Card = ( { pokemon } ) => {
     <>
       { pokemonInfos && 
 
-        <Link to={`../pokemon/${ pokemonInfos.id }`} 
+        <Link to={`/pokemon/${ pokemonInfos.id }`} 
               className={   `col-10 mx-auto col-sm-6 mx-sm-0 col-lg-3 
                             ${ styles.card }`
                             

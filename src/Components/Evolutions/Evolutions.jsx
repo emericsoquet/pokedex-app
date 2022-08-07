@@ -49,7 +49,7 @@ const Evolutions = () => {
 
     return (
         <>
-        { chain && 
+        { chain &&
             <section className={`container ${styles.pokemon__evolutions}`}>
 
                 <div className="row">
