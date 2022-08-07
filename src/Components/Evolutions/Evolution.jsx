@@ -8,8 +8,6 @@ const Evolution = (props) => {
   const evolutionDetails = useEvolutionDetails(props.details.url)
   
   const id = evolutionDetails.id
-  console.log(id)
-  console.log(evolutionDetails)
   
   const pokemon = usePokemon(id)
 
@@ -35,7 +33,7 @@ const Evolution = (props) => {
     <a onClick={() => {window.location.href="../pokemon/" + id }} 
        className={`${styles.evolution} ${stageStyle} col-10 col-md-4 mx-auto`}
     >
-        { console.log(pokemon) }
+
         <figure className={`${ styles.evolution__pokemon}`}>
             <img 
                 src={ pokemon.sprites && pokemon.sprites.front_default }
@@ -43,6 +41,7 @@ const Evolution = (props) => {
             />
             <figcaption>{ pokemon.name }</figcaption>
         </figure>
+        
     </a>
     
   )

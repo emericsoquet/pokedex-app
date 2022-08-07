@@ -32,7 +32,6 @@ const Pokemon = () => {
         }
         dispatch(addFavorite(payload))
         localStorage.setItem('favorites', addFavorite);
-        console.log('AJOUTÉ DU POKÉDEX')
     }
 
     const existantFavorite = (pokemonName) => favorites.findIndex( element => element.infos.name == pokemonName )

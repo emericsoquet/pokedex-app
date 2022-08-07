@@ -13,9 +13,6 @@ const Listing = () => {
   const [firstCall, setFirstCall] = useState(true)
   const [pokemons, setPokemons] = useState([])
 
-  const inputValue = useRef()
-
-
   useEffect( () => {
 
     if(!firstCall) {
@@ -28,25 +25,12 @@ const Listing = () => {
     setFirstCall(false)
   }, [search])
 
-  const handleSearch = event => {
-      event.preventDefault()
-      setSearch(inputValue.current.value)
-  }
-
   return (
     <main>
       <div className={ `container ${ styles.listing }` }>
         <div className="row">
 
-        {/* <Searchbar setSearch={ setSearch } /> */}
-          <form role="search" className={`col-10 mx-auto ${styles.searchbar}`} onChange={ handleSearch }>
-              <label htmlFor="search-pokemon">Seek out wild Pokémons!</label>
-              <div className="input-group">
-                  <input type="text" className="form-control" id="search-pokemon" ref={inputValue} />
-                  <button className="input-group-text" type="submit">Search</button>
-              </div>
-              
-          </form>
+        <Searchbar setSearch={ setSearch } />
 
         { 
         

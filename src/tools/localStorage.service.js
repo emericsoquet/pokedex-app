@@ -1,4 +1,5 @@
 // chercher dans le cache local avec loadState
+
 export const loadState = () => {
     // si l'utilisateur bloque le cache, la fonction peut planter donc on insère un try + catch
     try {

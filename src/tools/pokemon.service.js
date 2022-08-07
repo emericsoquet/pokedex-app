@@ -37,9 +37,6 @@ export function useEvolutions(url) {
             if (url) {
                 const { data } = await axios.get( url );
                 setEvolutions( data );
-                console.log('CONNECTÉ')
-            } else {
-                console.log('NON CONNECTÉ')
             }
         }
         fetchList();
@@ -54,8 +51,6 @@ export function useEvolutionDetails(url) {
             if (url) {
                 const { data } = await axios.get(url);
                 setPokemon( data );
-            } else {
-                console.log('NON CONNECTÉ')
             }
         }
         fetchList();
