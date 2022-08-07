@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../../Styles/Pokemon.module.scss'
 import { v4 as uuidv4 } from 'uuid'
 
+// les données sont dans deux url à savoir pokemon/ et pokemon-species/
 const Metas = ({pokemon, pokemonDetails}) => {
 
     return (
@@ -9,6 +10,7 @@ const Metas = ({pokemon, pokemonDetails}) => {
             <div className={`container ${ styles.pokemon__metas }`}>
 
                 <ul className="row col-xl-10 col-xxl-8 mx-auto">
+                    {/* arrondi à deux virgules du poids et de la taille + conversion en m et kg */}
                     <li className={`${ styles.meta } col-12 col-md-6 col-xl-4`}>
                         <span className={ styles.meta__property }>Height</span>
                         <span className={ styles.meta__value }>{ (Math.round(pokemon.height * 10) / 100).toFixed(2) } m</span>
@@ -22,6 +24,9 @@ const Metas = ({pokemon, pokemonDetails}) => {
                         <span className={ styles.meta__value }>{ pokemonDetails.capture_rate }</span>
                     </li>
                     <li className={`${ styles.meta } col-12 col-md-6 col-xl-4`}>
+                        {/* pour le genre : 8 = le plus de chances d'être une femelle et 1, d'être un mâle
+                                            si -1, le pokémon n'a pas de genre donc unknown
+                         */}
                         <span className={ styles.meta__property }>Gender</span>
                         { pokemonDetails.gender_rate === -1 ? 
                             <span className={ styles.meta__value }>Unknown</span> :

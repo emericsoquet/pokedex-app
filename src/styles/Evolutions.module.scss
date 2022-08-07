@@ -2,6 +2,7 @@
 
 .pokemon__evolutions {
     margin: 2rem auto;
+    
     .evolution {
         background: none;
         cursor: pointer;
@@ -22,9 +23,12 @@
             
         }
 
+        // pour que les classes ne soient pas considérés comme undefined par le jsx, attribution d'une propriété "vide"
         &__first, &__second, &__third {
             background: none;
         }
+
+        // seul les premiers et stades ont besoin d'une flèche
         &__first, &__second {
             .evolution__pokemon {
                 &:after {

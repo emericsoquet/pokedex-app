@@ -1,7 +1,5 @@
 // dependencies
-import thunk from 'redux-thunk'
-import { combineReducers, createStore, applyMiddleware } from 'redux';
-import { useSelector } from 'react-redux';
+import { combineReducers, createStore } from 'redux';
 
 // reducers
 import favoritesReducer from '../Reducers/favorites';
@@ -14,6 +12,7 @@ const rootReducer = combineReducers({
     favorites: favoritesReducer
 })
 
+// utilisé pour localStorage, dès qu'on utilise setState
 const persistedState = loadState();
 // création du store
 const store = createStore(

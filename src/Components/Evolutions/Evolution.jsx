@@ -1,16 +1,23 @@
+// dependencies
 import React from 'react'
-import { useEvolutionDetails, usePokemon } from '../../tools/pokemon.service'
-import { Link } from 'react-router-dom'
+
+// services
+import { useEvolutions, usePokemon } from '../../tools/pokemon.service'
+
+// styles
 import styles from '../../Styles/Evolutions.module.scss'
 
+// problème pour evolution.jsx avec vite : Il faut sauvegarder ce fichier pour que les sprites s'affichent
 const Evolution = (props) => {
 
-  const evolutionDetails = useEvolutionDetails(props.details.url)
+  // récupération de la chaîne d'évolution
+  const evolutionDetails = useEvolutions(props.details.url)
   
+  // récupération de pokemon à partir de evolution-chain (sprites, principalement)
   const id = evolutionDetails.id
-  
   const pokemon = usePokemon(id)
 
+  // ajout d'une classe spécifique dépendant du stade d'évolution
   const stage = props.stage
   let stageStyle
   switch (stage) {
@@ -41,7 +48,7 @@ const Evolution = (props) => {
             />
             <figcaption>{ pokemon.name }</figcaption>
         </figure>
-        
+
     </a>
     
   )

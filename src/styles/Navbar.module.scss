@@ -1,5 +1,6 @@
 @import 'partials.scss';
 
+// navbar également géré grâce à bootstrap
 .nav {
     background: $primary;
     padding: 20px 10px;
@@ -38,6 +39,7 @@
         }
     }
 
+    // permet de gérer le bouton pour déployer la nav quand celui-ci est présent
     &__toggler[aria-expanded='true'] {
         .nav__toggler_icon {
             transform: rotate(180deg)
@@ -67,6 +69,7 @@
         }
     }
 
+    // le compteur de pokémons dans le pokédex
     &__counter {
         &_catched {
             display: flex;

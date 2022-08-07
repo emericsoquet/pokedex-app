@@ -13,28 +13,37 @@ import pokeball from '../../assets/pokeball.svg'
 
 const Card = ( { pokemon } ) => {
 
+  // récupération du nom via les props -- va permettre de récupérer la bonne URL
   const name = pokemon.name
+
+  // de pokemon.service, l'url vers l'API
   const pokemonInfos = usePokemon(name)
   const dispatch = useDispatch();
 
   const favorites = useSelector((state) => state.favorites);
 
+  // fonction pour ajouter un pokémon aux favoris, depuis la fonction addFavorite
+  // pour déclarer les propriétés dans le payload --> removeFavorite n'aura pas besoin de le faire donc on pourra appeler comme tel
   const addPokemon = () => {
     const payload = {
       infos: pokemonInfos,
       id: pokemonInfos.id
     }
     dispatch(addFavorite(payload))
+    // on stocke dans le tableau favorite le pokémon ajouté -- cache local
     localStorage.setItem('favorites', addFavorite);
-    console.log('AJOUTÉ DU POKÉDEX')
   }
 
-
+  // condition : est-ce que le pokémon existe dans le tableau favorite
   const existantFavorite = (pokemonName) => favorites.findIndex( element => element.infos.name == pokemonName )
 
   const manageFavorites = (event, pokemonName, id) => {
     event.preventDefault()
-    existantFavorite(pokemonName) !== -1 ? Swal.fire({
+
+    // appel condition
+    existantFavorite(pokemonName) !== -1 ? 
+      // s'il est dans favorites, swalfire pour pop-up de confirmation de suppression
+      Swal.fire({
       title: 'Remove from Léo\'s PC',
       text: 'Are you sure you want to release this Pokemon?',
       icon: 'error',
@@ -44,10 +53,13 @@ const Card = ( { pokemon } ) => {
       cancelButtonText: 'No',
       cancelButtonColor: '#ccc'
     }).then( result => {
+      // dans la pop-up, si on clique sur le bouton de confirmation, appel de la fonction remove favorite et pokémon supprimé de favorites (=pokédex)
       if (result['isConfirmed']) {
         dispatch(removeFavorite(id))
       } else { return }
-    }): addPokemon()
+    }): 
+    // s'il n'y est pas, ajout
+    addPokemon()
   }
 
  
@@ -55,6 +67,7 @@ const Card = ( { pokemon } ) => {
     <>
       { pokemonInfos && 
 
+        // lien vers la fiche pokémon pour chaque carte générée
         <Link to={`/pokemon/${ pokemonInfos.id }`} 
               className={   `col-10 mx-auto col-sm-6 mx-sm-0 col-lg-3 
                             ${ styles.card }`
@@ -77,6 +90,8 @@ const Card = ( { pokemon } ) => {
 
 
           </figure>
+
+          {/* au clic sur le bouton pokéball, appel de manageFavorites qui lancera soit la fonction addPokemon ou la pop */}
           <button 
                   onClick={ (event) => manageFavorites(event, pokemonInfos.name, pokemonInfos.id) } 
                   className={`button

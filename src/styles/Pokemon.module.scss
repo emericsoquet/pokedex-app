@@ -1,6 +1,9 @@
 @import 'partials.scss';
 
+// chaque section de la fiche pokémon traité en &__
+
 .pokemon {
+
     &__identity {
         position: relative;
         overflow: hidden;

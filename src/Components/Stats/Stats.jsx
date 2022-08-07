@@ -14,6 +14,7 @@ const Stats = ({pokemon}) => {
                     return <div key={ uuidv4() } className={`col-12 col-md-6 ${styles.pokemon__stat}`}>
                                 <h3>{ stat.stat.name }</h3>
                                 <div className={ styles.stat__bar_empty }>
+                                    {/* deuxième div pour inclure, dans chaque barre, une barre colorée avec une largeur calculcée selon la stat du pokémon et la stat la plus élevée du jeu 255 */}
                                     <div className={ styles.stat__bar_full } 
                                          style={{ width: `${((stat.base_stat * 100) / maxStat )}%` }}
                                     >                                        <span>{ stat.base_stat }</span></div>

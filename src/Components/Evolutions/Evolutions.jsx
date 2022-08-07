@@ -1,10 +1,18 @@
+// dependencies
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { usePokemonDetails, useEvolutions } from '../../tools/pokemon.service'
-import styles from '../../Styles/Evolutions.module.scss'
 import { v4 as uuidv4 } from 'uuid'
+
+// services
+import { usePokemonDetails, useEvolutions } from '../../tools/pokemon.service'
+
+// styles
+import styles from '../../Styles/Evolutions.module.scss'
+
+// components
 import Evolution from './Evolution'
 
+// problème pour evolutions.jsx avec vite : Il faut sauvegarder ce fichier pour qu'elles s'affichent
 const Evolutions = () => {
 
     // récupérer l'url de la chaîne d'évolution
@@ -12,7 +20,7 @@ const Evolutions = () => {
     const pokemonDetails = usePokemonDetails( params.id )
     const url = pokemonDetails.evolution_chain && pokemonDetails.evolution_chain.url
 
-    // faire une requête sur cet ur
+    // faire une requête sur cet url
     const evolutions = useEvolutions( url )
     const chain = evolutions.chain
 

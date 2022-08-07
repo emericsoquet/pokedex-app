@@ -1,7 +1,5 @@
 // dependencies
-import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 
 // styles
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
@@ -18,7 +16,6 @@ import NotFound from './Views/NotFound'
 
 function App() {
 
-
   return (
     <div className="App">
       <Navbar />
@@ -26,6 +23,7 @@ function App() {
         <Route path="/" element={ <Listing /> } />
         <Route path="/pokedex" element={ <Pokedex /> } />
         <Route path="/pokemon/:id" element={ <Pokemon /> } />
+        {/* tout autre route qui n'existe pas encore renvoie vers une page erreur 404 */}
         <Route path="*" element={ <NotFound /> } />
       </Routes>
     </div>

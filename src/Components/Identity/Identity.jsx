@@ -37,6 +37,7 @@ const Identity = ({pokemon, pokemonDetails}) => {
                             }
                         </div>
                         <h1>{ pokemon.name }</h1>
+                        {/* l'entrée 7 dans le tableau genera étant toujours en anglais */}
                         <p>{ pokemonDetails.genera?.[7].genus }</p>
                         <div className={ `${styles.pokemon__id}` }>
                             { pokemon.id }
@@ -49,6 +50,7 @@ const Identity = ({pokemon, pokemonDetails}) => {
             <div className={styles.pokemon__description}>
                 <div className="container">
                     <div className="row">
+                        {/* ajout de la description, récupération définie avant le return */}
                         <p className="col-10 col-md-8 col-lg-6 col-xxl-5">{ description }</p>
                     </div>
                 </div>

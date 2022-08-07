@@ -1,8 +1,11 @@
 @import './partials.scss';
 
+// pokédex.jsx dépend beaucoup du style de card.module.scss
 .pokedex {
     position: relative;
     overflow: hidden;
+
+    // titre en fond 
     h1 {
         color: $primaryDark;
         font-family: $headings1;
